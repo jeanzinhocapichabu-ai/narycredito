@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>NARY RECARGAS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+
+  /* FUNDO COM SUA IMAGEM */
+  background:
+    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+    url("e7091eb3-ce3e-48a0-9b69-34a01600170f.png");
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+}
+
+.card{
+  background:rgba(255,255,255,.95);
+  width:360px;
+  padding:20px;
+  border-radius:18px;
+  box-shadow:0 15px 40px rgba(0,0,0,.4);
+}
+
+.logo{
+  text-align:center;
+  margin-bottom:10px;
+}
+
+.logo h1{
+  margin:0;
+  font-size:28px;
+  font-weight:900;
+  color:#7b2cff;
+  letter-spacing:2px;
+}
+
+.operadoras{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin:15px 0;
+}
+
+.op{
+  height:110px;
+  border-radius:14px;
+  overflow:hidden;
+  border:2px solid #ddd;
+  cursor:pointer;
+}
+.op img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.op.ativo{
+  border-color:#7b2cff;
+}
+
+input,select,button{
+  width:100%;
+  padding:12px;
+  margin-top:12px;
+  font-size:16px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+
+button{
+  background:#7b2cff;
+  color:#fff;
+  border:none;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.pixBtn{
+  display:block;
+  text-align:center;
+  background:#820ad1;
+  color:#fff;
+  padding:14px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:bold;
+  margin-top:12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+  <!-- TÍTULO -->
+  <div class="logo">
+    <h1>NARY RECARGAS</h1>
+  </div>
+
+  <!-- OPERADORAS -->
+  <div class="operadoras">
+    <div class="op ativo" id="opClaro">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQya6LlPcCAOIZ4h2PHVtVzepy608adbCAEew&s">
+    </div>
+
+    <div class="op" id="opTim">
+      <img src="data:image/png;base64,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">
+    </div>
+  </div>
+
+  <input id="numero" placeholder="Número do celular">
+  <select id="valor"></select>
+
+  <button onclick="continuar()">Continuar</button>
+
+  <a class="pixBtn"
+     href="https://nubank.com.br/cobrar/1h5dhc/69841504-06d7-4174-a4fe-c95e01a19140"
+     target="_blank">
+     PAGAR COM PIX
+  </a>
+
+</div>
+
+<script>
+const valores={
+  Claro:[
+    {recarga:20,paga:7},
+    {recarga:25,paga:8},
+    {recarga:30,paga:9},
+    {recarga:35,paga:10},
+    {recarga:40,paga:11},
+    {recarga:50,paga:13}
+  ],
+  TIM:[
+    {recarga:20,paga:8},
+    {recarga:30,paga:9},
+    {recarga:40,paga:11},
+    {recarga:50,paga:15},
+    {recarga:60,paga:16},
+    {recarga:70,paga:18},
+    {recarga:80,paga:20},
+    {recarga:90,paga:19},
+    {recarga:100,paga:22}
+  ]
+};
+
+let operadora="Claro";
+preencher("Claro");
+
+opClaro.onclick=()=>ativar("Claro","opClaro");
+opTim.onclick=()=>ativar("TIM","opTim");
+
+function ativar(op,id){
+  operadora=op;
+  document.querySelectorAll(".op").forEach(o=>o.classList.remove("ativo"));
+  document.getElementById(id).classList.add("ativo");
+  preencher(op);
+}
+function preencher(op){
+  valor.innerHTML="";
+  valores[op].forEach(v=>{
+    valor.innerHTML+=`<option value='${JSON.stringify(v)}'>R$${v.recarga} (paga R$${v.paga})</option>`;
+  });
+}
+function continuar(){
+  if(!numero.value) return alert("Digite o número");
+  const v=JSON.parse(valor.value);
+  const msg=`NOVO PEDIDO\nOperadora:${operadora}\nNúmero:${numero.value}\nRecarga:R$${v.recarga}\nPaga:R$${v.paga}`;
+  location.href="https://wa.me/5522992510544?text="+encodeURIComponent(msg);
+}
+</script>
+
+</body>
+</html>
